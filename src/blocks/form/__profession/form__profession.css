@@ -1,4 +1,4 @@
-.forma__profession {
+.form__profession {
     margin: 16px 0px 0px 30px;
     padding: 0px;
     font-family: 'Inter', Arial, sans-serif;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 879px) {
-    .forma__profession {
+    .form__profession {
         margin: 14px 0px 0px 0px;
         font-size: 14px;
         line-height: 17px;

@@ -1,4 +1,4 @@
-.forma__name {
+.form__name {
     margin: 22px 0px 0px 30px;
 padding: 0px;
 font-family: 'Inter', Arial, sans-serif;
@@ -11,7 +11,7 @@ font-family: 'Inter', Arial, sans-serif;
 }
 
 @media screen and (max-width: 879px) {
-    .forma__name {
+    .form__name {
         margin: 26px 0px 0px 0px;
         font-size: 27px;
 line-height: 33px;

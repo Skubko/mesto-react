@@ -1,5 +1,3 @@
-//import logo from "./logo.svg";
-// import "./App.css";
 import React from "react";
 import { useEffect } from "react";
 
@@ -17,7 +15,7 @@ import ImagePopup from './ImagePopup.js';
 function App() {
 
     const [cards, setCards] = React.useState([]);
-    const [info, setInfo] = React.useState([]);
+    const [info, setInfo] = React.useState({});
     const [selectedCard, setSelectedCard] = React.useState(null);
     function handleCardClick(card) {
         setSelectedCard(card);
@@ -43,7 +41,7 @@ function App() {
             .catch((err) => {
                 console.log(err);
             });
-    }, [setInfo]);
+    }, []);
 
     const [isEditAvatarPopupOpen, setStateAvatar] = React.useState(false);
     function handleEditAvatarClick() {
@@ -66,9 +64,9 @@ function App() {
         setStateConfirm(true);
     }
 
-    const [, setClosePopups] = React.useState(false);
+  //  const [, setClosePopups] = React.useState(false);
     function closeAllPopups() {
-        setClosePopups(true);
+       // setClosePopups(true);
         setStateProfile(false);
         setStatePlace(false);
         setStateAvatar(false);
@@ -100,6 +98,7 @@ function App() {
                 title={"Обновить аватар"}
                 onClose={closeAllPopups}
                 isOpen={isEditAvatarPopupOpen}
+                buttonText={"Сохранить"}
             >
                 <EditAvatarFormContent />
             </PopupWithForm>
@@ -109,6 +108,7 @@ function App() {
                 title={"Редактировать профиль"}
                 onClose={closeAllPopups}
                 isOpen={isEditProfilePopupOpen}
+                buttonText={"Сохранить"}
             >
                 <EditProfileFormContent />
             </PopupWithForm>
@@ -118,6 +118,7 @@ function App() {
                 title={"Новое место"}
                 onClose={closeAllPopups}
                 isOpen={isAddPlacePopupOpen}
+                buttonText={"Сохранить"}
             >
                 <EditAddFormContent />
             </PopupWithForm>
@@ -127,6 +128,7 @@ function App() {
                 title={"Вы уверены?"}
                 onClose={closeAllPopups}
                 isOpen={isAddConfirmPopupOpen}
+                buttonText={"Да"}
             >
             </PopupWithForm>
 
