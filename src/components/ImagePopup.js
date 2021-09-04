@@ -2,7 +2,7 @@ import React from "react";
 
 function ImagePopup(props) {
     return (
-        <div id="popupPicture" className={`popup popup_picture ${(props.card !== null) && "popup_opened"}`} >
+        <div id="popupPicture" className={`popup popup_picture ${props.isOpen ? "popup_opened" : ""} `} >
             <figure className="popup__figure" >
                 <button type="button" aria-label="крестик для закрытия попапа" className="close-icon" onClick={props.onClose}></button>
                 <img src={props.card !== null ? props.card.link : "#"} alt="Увеличенная картинка" className="popup__image" />

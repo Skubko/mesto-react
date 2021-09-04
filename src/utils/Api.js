@@ -14,7 +14,7 @@ class Api {
     }
 
     //загружаем с сервера массив данных по карточкам
-    getInitialCards() {
+    getCardList() {
         return fetch(`${this._url}/cards`, {
             method: "GET",
             headers: this._headers
@@ -33,7 +33,7 @@ class Api {
             .then(this._checkResponse);
     }
 
-    recordProfile(name, about) {
+    setUserInfo(name, about) {
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
@@ -65,28 +65,28 @@ class Api {
             .then(this._checkResponse);
     }
 
-    addLike(id) {
-        return fetch(`${this._url}/cards/likes/${id}`, {
-            method: "PUT",
-            headers: this._headers,
-        })
-            .then(this._checkResponse);
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked === true) {
+            return fetch(`${this._url}/cards/likes/${id}`, {
+                method: "PUT",
+                headers: this._headers,
+            })
+                .then(this._checkResponse);
+        } else {
+            return fetch(`${this._url}/cards/likes/${id}`, {
+                method: "DELETE",
+                headers: this._headers,
+            })
+                .then(this._checkResponse);
+        }
     }
 
-    deleteLike(id) {
-        return fetch(`${this._url}/cards/likes/${id}`, {
-            method: "DELETE",
-            headers: this._headers,
-        })
-            .then(this._checkResponse);
-    }
-
-    recordAvatar(src) {
+    setUserAvatar(src) {
         return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                avatar: src.linkAvatar
+                avatar: src.avatar
             })
         })
             .then(this._checkResponse);

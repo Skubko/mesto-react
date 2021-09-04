@@ -5,6 +5,9 @@
         height: 120px;
         border-radius: 60px;
         cursor: url("../../../images/cursorStilus.png"), auto;
+background-size: cover;
+background-position: center;
+
     }
     
     .profile__foto:hover {
