@@ -16,7 +16,7 @@ import ImagePopup from './ImagePopup.js';
 function App() {
 
     const [cards, setCards] = useState([]);
-    const [selectedCard, setSelectedCard] = useState({});
+    const [selectedCard, setSelectedCard] = useState(null);
     const [currentUser, setCurrentUser] = useState({});
     const [isImagePopupOpen, setStateImage] = React.useState(false);// стейт открытие и закрытие попапа с картинкой
 
@@ -101,9 +101,9 @@ function App() {
     }
 
 
-    function handleUpdateUser() {
-        api.setUserInfo(currentUser.name, currentUser.about)
-            .then()
+    function handleUpdateUser(name, description) {
+        api.setUserInfo(name, description)
+            .then(res => { setCurrentUser(res); closeAllPopups() })
             .catch(error => console.log(error))
             .finally(() => { setStateProfile(false) });
     }
@@ -182,3 +182,5 @@ function App() {
 }
 
 export default App;
+// спасибо за понятное объяснение ошибок, очень помогает при их исправлении. Из-за нехватки времени (следующий 12 спринт - жесткий дедлайн) не успел исправить
+// замечания "можно лучше".

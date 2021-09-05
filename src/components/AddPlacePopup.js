@@ -29,10 +29,10 @@ function AddPlacePopup(props) {
         >
             <>
                 <input id="nameCard" type="text" placeholder="Название" className="popup__input"
-                    required="" minLength="2" maxLength="30" value={cardName} onChange={(e) => setName(e.target.value)} />
+                    required minLength="2" maxLength="30" value={cardName} onChange={(e) => setName(e.target.value)} />
                 <span className="popup__input-error nameCard-placeholder"></span>
                 <input id="linkCard" type="url" placeholder="Ссылка на картинку" className="popup__input"
-                    required="" value={cardUrl} onChange={(e) => setUrl(e.target.value)} />
+                    required value={cardUrl} onChange={(e) => setUrl(e.target.value)} />
                 <span className="popup__input-error linkCard-placeholder"></span>
             </>
         </PopupWithForm >

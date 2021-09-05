@@ -34,6 +34,7 @@ class Api {
     }
 
     setUserInfo(name, about) {
+ //       console.log(' setUserInfo(name, about) ==  ', name, about);
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
             headers: this._headers,

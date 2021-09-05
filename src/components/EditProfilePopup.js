@@ -14,15 +14,15 @@ function EditProfilePopup(props) {
     useEffect(() => {
         setName(currentUser.name);
         setDescription(currentUser.about);
-    }, [currentUser]);
+    }, [currentUser, props.isOpen]);
 
     function handleSubmit(e) {
         // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
         // Передаём значения управляемых компонентов во внешний обработчик
-        currentUser.name = name;
-        currentUser.about = description;
-        props.onUpdateUser();
+        //currentUser.name = name;
+        //currentUser.about = description;
+        props.onUpdateUser(name, description);
     }
 
     return (
@@ -35,9 +35,9 @@ function EditProfilePopup(props) {
             onSubmit={handleSubmit}
         >
             <>
-                <input id="name" type="text" placeholder="Имя" className="popup__input" required="" minLength="2" maxLength="40" value={name} onChange={(e) => { setName(e.target.value) }} />
+                <input id="name" type="text" placeholder="Имя" className="popup__input" required minLength="2" maxLength="40" value={name || ""} onChange={(e) => { setName(e.target.value) }} />
                 <span className="popup__input-error name-placeholder" ></span>
-                <input id="job" type="text" placeholder="О себе" className="popup__input" required="" minLength="2" maxLength="200" value={description} onChange={(e) => { setDescription(e.target.value) }} />
+                <input id="job" type="text" placeholder="О себе" className="popup__input" required minLength="2" maxLength="200" value={description || ""} onChange={(e) => { setDescription(e.target.value) }} />
                 <span className="popup__input-error job-placeholder" ></span>
             </>
         </PopupWithForm>
